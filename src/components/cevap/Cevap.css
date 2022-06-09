@@ -1,0 +1,32 @@
+.Cevaplar{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.Cevaplar li{
+    padding: 10px;
+    border-left: 4px solid #FF3B3B;
+    background-color: #bbb;
+    margin: 0 0 5px;
+}
+.Cevaplar li:hover{
+    cursor: pointer;
+    background-color: #a2a2a2;
+}
+
+.Cevaplar .dogru,
+.Cevaplar .dogru:hover {
+    background-color: #1db900;
+    border-left: 4px solid #0f6300;
+    color: #fff;
+}
+.Cevaplar .yanlis,
+.Cevaplar .yanlis:hover {
+    background-color: #ec0000;
+    border-left: 4px solid #FF3B3B;
+    color: #fff;
+}
+.Cevaplar[disabled] {
+    pointer-events: none;
+    opacity: 0.7;
+}
