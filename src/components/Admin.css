@@ -1,0 +1,70 @@
+.sınavOlustur {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #006400;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-left: 2%;
+  }
+  
+.sınavOlustur:hover {background-color: #3e8e41}
+  
+.sınavOlustur:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.sonuclar {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #006400;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+.sonuclar:hover {background-color: #3e8e41}
+  
+.sonuclar:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.cıkıs {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #8b1a1a;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-left:70%;
+    margin-top: 2%;
+    
+  }
+  
+.cıkıs:hover {background-color: #cd2626}
+  
+.cıkıs:active {
+    background-color: #cd2626;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

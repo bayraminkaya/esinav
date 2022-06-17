@@ -4,62 +4,22 @@ import Cevap from './cevap/Cevap';
 import './TestMain.css';
 
 export default class Test extends Component {
-    
-    state={
-        sorular:{
-            1:'Türkiyenin Başkenti',
-            2:'Türkiyenin En Uzun Dağı',
-            3:'Türkiyenin En Büyük Gölü',
-            4:'Osmanlının İlk Padişahı',
-            5:'Hangisi Yazılım Dili Değildir'
-        },
-        cevaplar:{
-            1:{
-                1:'İstanbul',
-                2:'Ankara',
-                3:'İzmir',
-                4:'Bursa'
-            },
-            2:{
-                1:'Ağrı Dağı',
-                2:'Uludağ',
-                3:'Erciyes Dağı',
-                4:'Kaz Dağı'
-            },
-            3:{
-                1:'Tuz Gölü',
-                2:'Eğirdir Gölü',
-                3:'Van Gölü',
-                4:'Beyşehir Gölü'
-            },
-            4:{
-                1:'Fatih Sultan Mehmet',
-                2:'Orhan Gazi',
-                3:'Osman Gazi',
-                4:'Yavuz Sultan Selim'
+    constructor(props){
+        super(props);
 
-            },
-            5:{
-                1:'Python',
-                2:'React',
-                3:'Java',
-                4:'Coğrafya'
-            },
-        },
-        dogruCevaplar:{
-            1:'2',
-            2:'1',
-            3:'3',
-            4:'3',
-            5:'4'
-        },
-        dogruCevap:0,
-        tiklananCevap:0,
-        adim:1,
-        puan:0
+        this.state = {
+            dogruCevap:0,
+            tiklananCevap:0,
+            adim:1,
+            puan:0
+        }
+
+        this.props = props;
     }
+    
     kontrolCevap= cevap=>{
-        const {dogruCevaplar,adim,puan} = this.state;
+        const {adim,puan} = this.state;
+        let dogruCevaplar = this.props.sinav.dogruCevaplar
         if(cevap===dogruCevaplar[adim]){
             this.setState({
                 puan:puan+1,
@@ -81,10 +41,29 @@ export default class Test extends Component {
             dogruCevap:0,
             tiklananCevap:0
         });
+        if(adim >= Object.keys(this.props.sinav.sorular).length ){
+            console.log(this.props)
+            let veriler = this.props.veriler.filter((el)=> el.kullaniciadi !== this.props.currentUser.kullaniciadi)
+            let sinav = this.props.currentUser.sinavlar.find((el)=>el.sinavIsmi === this.props.sinav.sinavIsmi)
+            if(sinav === undefined){
+                this.props.currentUser.sinavlar.push({
+                    sinavIsmi:this.props.sinav.sinavIsmi,
+                    puan: this.state.puan
+                })
+            }
+            else{
+                sinav.puan = this.state.puan;
+            }
+            this.props.setVeri([...veriler, this.props.currentUser])
+            console.log(this.props.veriler)
+        }
     }
 
     render(){
-        let {sorular,cevaplar,dogruCevap,tiklananCevap,puan,adim} = this.state
+        let {dogruCevap,tiklananCevap,puan,adim} = this.state
+        if(this.props.sinav === undefined)
+            return (<div></div>)
+        let {sorular,cevaplar} = this.props.sinav;
         return(
           <div className='Content'>
             {adim <= Object.keys(sorular).length ? 
@@ -108,6 +87,7 @@ export default class Test extends Component {
                   <div className='sonSayfa'>
                       <h1>Testi bitirdiniz</h1>
                       <p>{Object.keys(sorular).length} sorudan {puan} tanesini bildiniz </p>
+                      <button className='geri' onClick={()=>this.props.switchPage(1)}>Geri</button>
                       <p>Teşekkürler</p>
                   </div>
                       

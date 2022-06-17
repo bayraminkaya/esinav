@@ -25,3 +25,14 @@
     text-transform: none;
     text-shadow: none;
 }
+.geri{
+    background-color:yellow;
+    color:black;
+    padding: 7px 15px;
+    border: 1;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.geri:hover{
+    background-color:gold;
+}

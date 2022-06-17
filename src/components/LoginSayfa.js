@@ -5,19 +5,7 @@ import './LoginSayfa.css';
 const LoginSayfa =(props)=>{
     
   const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  
-  
-  const veriler = [
-    {
-      kullaniciadi: "ogrenci",
-      sifre: "ogrenci"
-    },
-    {
-      kullaniciadi: "admin",
-      sifre: "admin"
-    }
-  ];
+
   
   const hatalar = {
     kullaniciAd: "Yanlış Kullanıcı Adı",
@@ -30,7 +18,7 @@ const LoginSayfa =(props)=>{
   
     var { kullaniciAd, sifrey } = document.forms[0];
   
-    const kullaniciVeri = veriler.find((user) => user.kullaniciadi === kullaniciAd.value);
+    const kullaniciVeri = props.veriler.find((user) => user.kullaniciadi === kullaniciAd.value);
     
     
     if (kullaniciVeri) {
@@ -38,7 +26,9 @@ const LoginSayfa =(props)=>{
         
         setErrorMessages({ isim: "sifrey", mesaj: hatalar.sifrey });
       } else {
-        setIsSubmitted(true);
+        props.login(kullaniciVeri);
+
+        props.switchPage(kullaniciVeri.isAdmin?2:1);
       }
     } else {
       
@@ -53,7 +43,7 @@ const LoginSayfa =(props)=>{
   );
   
   const loginForm = (
-    <div className="form">
+    <div className="form" style={props.style}>
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Kullanıcı Adı </label>
@@ -74,8 +64,8 @@ const LoginSayfa =(props)=>{
     
     return(
         <div className="login-form">
-        <div className="title">Giriş Yap</div>
-        {isSubmitted ? <div>Kullanıcı Başarı ile Oturum açtı</div> : loginForm}
+          <div className="title">Hoşgeldiniz</div>
+          {props.currentUser !== undefined ? <div>Kullanıcı Başarı ile Oturum açtı</div> : loginForm}
         </div>)
     
 }
