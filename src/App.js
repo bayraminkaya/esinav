@@ -6,14 +6,14 @@ import './App.css';
 import LoginPage from './components/LoginSayfa';
 
 function App() {
-  let arr = Array(4).fill("0%")
-  arr[0] = "100%"
-  const [pageHeight, setPageHeight] = useState(arr);
+  let array = Array(4).fill("0%");
+  array[0] = "100%";
+  const [pageHeight, setPageHeight] = useState(array);
 
   const switchPage = (el)=>{
-    let arr = Array(4).fill("0%");
-    arr[el] = "100%";
-    setPageHeight(arr);
+    let array = Array(4).fill("0%");
+    array[el] = "100%";
+    setPageHeight(array);
   };
 
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -69,6 +69,7 @@ function App() {
           5:'4'
       },
     }
+
   ]
 
   const [veriler, setVeri] = useState([
@@ -80,7 +81,9 @@ function App() {
         {
           sinavIsmi:"Vize",
           puan:-1
-        }
+          
+        },
+        
       ]
     },
     {
@@ -93,9 +96,14 @@ function App() {
   const [currentSinav, setCurrentSinav] = useState(undefined)
   
   const startSinav = (sinavAdi)=>{
-    setCurrentSinav( sinavlar.find((elem)=>elem.sinavIsmi === sinavAdi))
+    setCurrentSinav( sinavlar.find((element)=>element.sinavIsmi === sinavAdi))
     switchPage(3);
   }
+  
+
+  
+  
+  
 
 
   
@@ -118,3 +126,4 @@ function App() {
 }
 
 export default App;
+

@@ -43,8 +43,8 @@ export default class Test extends Component {
         });
         if(adim >= Object.keys(this.props.sinav.sorular).length ){
             console.log(this.props)
-            let veriler = this.props.veriler.filter((el)=> el.kullaniciadi !== this.props.currentUser.kullaniciadi)
-            let sinav = this.props.currentUser.sinavlar.find((el)=>el.sinavIsmi === this.props.sinav.sinavIsmi)
+            let veriler = this.props.veriler.filter((element)=> element.kullaniciadi !== this.props.currentUser.kullaniciadi)
+            let sinav = this.props.currentUser.sinavlar.find((element)=>element.sinavIsmi === this.props.sinav.sinavIsmi)
             if(sinav === undefined){
                 this.props.currentUser.sinavlar.push({
                     sinavIsmi:this.props.sinav.sinavIsmi,
@@ -86,7 +86,7 @@ export default class Test extends Component {
               </div>) : (
                   <div className='sonSayfa'>
                       <h1>Testi bitirdiniz</h1>
-                      <p>{Object.keys(sorular).length} sorudan {puan} tanesini bildiniz </p>
+                      <p>{Object.keys(sorular).length} sorudan {puan} tanesini doğru bildiniz </p>
                       <button className='geri' onClick={()=>this.props.switchPage(1)}>Geri</button>
                       <p>Teşekkürler</p>
                   </div>

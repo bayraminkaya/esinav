@@ -1,26 +1,3 @@
-.sınavOlustur {
-    display: inline-block;
-    padding: 10px 10px;
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #006400;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    margin-left: 2%;
-  }
-  
-.sınavOlustur:hover {background-color: #3e8e41}
-  
-.sınavOlustur:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
 .sonuclar {
     display: inline-block;
     padding: 10px 10px;
@@ -34,6 +11,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    margin-left: 6%;
   }
   
 .sonuclar:hover {background-color: #3e8e41}
@@ -42,6 +20,15 @@
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}
+.sonuc{
+  background-color: #3e8e41;
+  padding-left: 6%;
+  margin-top: 5%;
+  margin-right: 80%;
+  border-radius: 20px;
+  
+  
 }
 .cıkıs {
     display: inline-block;
@@ -68,3 +55,4 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+

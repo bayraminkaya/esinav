@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import './Sinavlar'
+import React from "react";
+import './Sinavlar.css';
 
 const Sinavlar=(props)=>{
     
@@ -14,10 +14,14 @@ const Sinavlar=(props)=>{
     }
     return (
     <div className="sayfaSinav">
-        { props.currentUser[0]!== undefined && props.currentUser[0].sinavlar.map((elem)=>(
-        <div className="sinavlar"><p>{elem.sinavIsmi}</p> <p>{elem.puan}</p>
-        <button className="basla" onClick={()=>props.startSinav(elem.sinavIsmi)}>Sınava Başla</button></div>))
+        { props.currentUser[0]!== undefined && props.currentUser[0].sinavlar.map((element)=>(
+        <div className="sinavlar">    
+            <h2>{element.sinavIsmi}</h2>
+            <button className="basla" onClick={()=>props.startSinav(element.sinavIsmi)}>Sınava Başla</button>
+        </div>
+        ))
         }
+        
         <button className="cikis" onClick={exit}>Çıkış Yap</button>
     </div>
     )
